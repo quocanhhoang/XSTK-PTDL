@@ -1,0 +1,22 @@
+Bước 5. Phân tích kết quả sau.
+- Thời gian ở lại trung bình của người dùng là 457.26 giây.
+- Người dùng xem trung bình 10.37 trang mỗi phiên.
+- Thời gian ở lại có ảnh hưởng rất yếu đến tỷ lệ quay lại. Hệ số dốc (beta_1) là 7.67e-05, nghĩa là khi thời gian ở lại tăng 1 giây, tỷ lệ quay lại chỉ tăng khoảng 0.0000767. Chỉ số R^2 rất thấp (0.0045), cho thấy thời gian ở lại chỉ giải thích được khoảng 0.45% sự biến động của tỷ lệ quay lại.
+- Số trang xem có ảnh hưởng rất yếu đến tỷ lệ quay lại. Hệ số dốc (beta_1) là -0.0032, nghĩa là khi số trang xem tăng 1 trang, tỷ lệ quay lại giảm khoảng 0.0032. Chỉ số R^2 cũng rất thấp (0.0034), cho thấy số trang xem chỉ giải thích được khoảng 0.34% sự biến động của tỷ lệ quay lại.
+- Khi kết hợp cả hai biến (thời gian ở lại và số trang xem) trong mô hình hồi quy đa biến, chỉ số R^2 là 0.0069. So với các mô hình đơn biến (R^2 là 0.0045 và 0.0034), R^2 có cải thiện nhẹ nhưng vẫn còn rất thấp. Điều này cho thấy việc kết hợp cả hai biến này cũng không làm tăng đáng kể độ chính xác của mô hình trong việc dự đoán tỷ lệ quay lại
+- Dựa trên mô hình hồi quy tuyến tính, có một xu hướng rất nhỏ và yếu cho thấy người dùng ở lại lâu hơn có tỷ lệ quay lại cao hơn (hệ số dương). Tuy nhiên, với R^2 cực thấp, mối quan hệ này không đáng kể và không thể kết luận mạnh mẽ.
+- Dựa trên mô hình hồi quy tuyến tính, có một xu hướng rất nhỏ và yếu cho thấy người xem nhiều trang có tỷ lệ quay lại thấp hơn (hệ số âm). Tương tự, với R^2 cực thấp, mối quan hệ này không đáng kể và không thể kết luận mạnh mẽ.
+- Mô hình 1 (Thời gian ở lại): y = 0.47 + 0.00x. Mối quan hệ là tuyến tính và có xu hướng tăng nhẹ (hệ số dốc dương), nhưng tác động rất nhỏ.
+- Mô hình 2 (Số trang xem): y = 0.53 + -0.00x. Mối quan hệ là tuyến tính và có xu hướng giảm nhẹ (hệ số dốc âm), nhưng tác động cũng rất nhỏ.
+- Ý nghĩa thực tế của hệ số chặn có thể hạn chế trong các trường hợp biến độc lập bằng 0 không có ý nghĩa.
+- Do các hệ số dốc này rất nhỏ, ý nghĩa thực tế của chúng trong việc dự đoán tỷ lệ quay lại là không đáng kể, cho thấy các biến này có ít hoặc không có ảnh hưởng tuyến tính mạnh mẽ đến tỷ lệ quay lại.
+- Dựa vào cả R² và MSE, các mô hình dự đoán này không chính xác và không hiệu quả trong việc dự đoán tỷ lệ quay lại từ thời gian ở lại và số trang xem. Cần xem xét các yếu tố khác hoặc các phương pháp mô hình hóa phức tạp hơn để có thể dự đoán tỷ lệ quay lại một cách đáng tin cậy.
+- ==> Mô hình có dự đoán tốt hay không?
+  - Không, các mô hình hồi quy tuyến tính hiện tại không có khả năng dự đoán tốt. Chỉ số R² cực kỳ thấp (dưới 1% cho tất cả các mô hình) cho thấy rằng thời gian ở lại và số trang xem chỉ giải thích được rất ít sự biến động của tỷ lệ quay lại.
+- Những điểm cần cải thiện:
+  - Mối quan hệ yếu: Các biến đã phân tích có mối quan hệ tuyến tính rất yếu với tỷ lệ quay lại.
+  - Thiếu yếu tố quan trọng: Có thể các yếu tố chính ảnh hưởng đến tỷ lệ quay lại chưa được đưa vào phân tích.
+- Các cách cải thiện:
+  - Bổ sung các biến mới: Thu thập và đưa vào mô hình các biến khác có thể liên quan chặt chẽ hơn đến hành vi quay lại của người dùng (ví dụ: đặc điểm người dùng, nguồn giới thiệu, lịch sử tương tác, loại nội dung, tương tác tính năng).
+  - Sử dụng mô hình phức tạp hơn: Nếu mối quan hệ không tuyến tính, cần xem xét các thuật toán học máy phi tuyến tính hoặc nâng cao như Cây quyết định, Rừng ngẫu nhiên, Gradient Boosting hoặc Mạng nơ-ron để nắm bắt các mối quan hệ phức tạp hơn.
+  - Phân tích hành vi sâu hơn: Phân khúc người dùng và phân tích riêng cho từng nhóm có thể giúp hiểu rõ hơn về các mẫu hành vi khác nhau.
